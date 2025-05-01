@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+
+      p.score_context {
+        font-size: 90%;
+        margin-top: 0px;
+      }
+
+      h4.for_rationale {
+        margin-bottom: 2px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Assignment 4</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Jeremy Cho</strong> — <em>jec056@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: The rate of complaints of use of force by NYPD officers has increased in recent years, specifically for use of unwarranted force and gun-involved incidents.</h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="imgs/Use of Force_Numbers.jpg" alt="Use of Force Complaints by Numbers" />
+          <figcaption>The above visualization shows the change in number of complaints over use of force by the NYPD over some timeframe.</figcaption>
+        </figure>
+
+        <h4 class="for_rationale">Design Decisions and Rationale:</h4>
+        <p class="score_context">Note that "Score" is on a range from -2 to 2. The lower the score, the more deceptive a design choice is. The higher the score, the more earnest it is. 
+          0 is considered a neutral score.
+        </p>
+
+        <ul>
+          <li><strong>Use of numbers (as opposed to proportions, which will be further explained below)</strong>: Often times, when I see visualizations like this, one of the first things I ask myself
+            is "Am I looking at proportions, or just pure numbers?" This is an earnest display of the numbers. No transformations were made. Therefore, the audience of my visualization can
+             say that the rate of complaints of use of force by NYPD has gone up, since the numbers displayed reflect that claim. <strong>(Score: 1)</strong>
+          </li>
+          <li><strong>Use of Trend Line</strong>: When change over time has rises and drops that may make it difficult to see the change over time at a glance, a trend line
+            may help come to a conclusion faster. Though, I did make a choice to make the trend like a darker shade than its corresponding data line deliberately. 
+            The darker shade is easier to notice in comparison to a lighter shade. This was done to reinforce the proposition in the audience's mind. The claim
+             is supported, and there is a summary line that clearly shows a positive trend. <strong>(Score: 1)</strong>
+          </li>
+          <li><strong>No alterations to scaling, axes</strong>: For those who actually study the graph for deceptive techniques, or simply to assure oneself that the
+             graph isn't cut or transformed in a way to push one specific side. The y-axis for counts of complaints start at 0. There's no need to 
+             alter the graph in any way to make the data seem to reflect the "FOR" side any more than needed, since the data shows a clear trend over time. The honesty in how the data is presented 
+             may help in persuading the audience into agreeing with this proposition. <strong>(Score: 2)</strong>
+          </li>
+          <li><strong>Small description for context</strong>: This is simply here to briefly summarize what the data shows. It also puts into context the difference
+            in number of complaints between incidents of physical force versus those that involve a firearm. <strong>(Score: 0)</strong> 
+         </li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="imgs/Use of Force_Prop..jpg" alt="" />
+          <figcaption>BRIEF CAPTION HERE.</figcaption>
+        </figure>
+
+        <h4>Design Decisions and Rationale:</h4>
+
+        <ul>
+          <li><strong>Use of proportions</strong>:Proportions can tell a story different from pure numbers. Perhaps the rise in the number of complaints 
+            is a case of "more detected, more reported." This is the case for things like the number of people diagnosed with disorders. The medical field has 
+            gotten better at identifying the signs of disorders like ADHD, hence the rise in the number of reported cases. This doesn't necessarily mean that 
+            the population is seeing a higher proporiton of people diagnosed with some disorder. In the context of this  <strong>(Score: 1)</strong>
+          </li>
+          <li><strong>Use of Trend Line</strong>: When change over time has rises and drops that may make it difficult to see the change over time at a glance, a trend line
+            may help come to a conclusion faster. Though, I did make a choice to make the trend like a darker shade than its corresponding data line deliberately. 
+            The darker shade is easier to notice in comparison to a lighter shade. This was done to reinforce the proposition in the audience's mind. The claim
+             is supported, and there is a summary line that clearly shows a positive trend. <strong>(Score: 1)</strong>
+          </li>
+          <li><strong>No alterations to scaling, axes</strong>: For those who actually study the graph for deceptive techniques, or simply to assure oneself that the
+             graph isn't cut or transformed in a way to push one specific side. The y-axis for counts of complaints start at 0. There's no need to 
+             alter the graph in any way to make the data seem to reflect the "FOR" side any more than needed, since the data shows a clear trend over time. The honesty in how the data is presented 
+             may help in persuading the audience into agreeing with this proposition. <strong>(Score: 2)</strong>
+          </li>
+          <li><strong>Small description for context</strong>: This is simply here to briefly summarize what the data shows. It also puts into context the difference
+            in number of complaints between incidents of physical force versus those that involve a firearm. <strong>(Score: 0)</strong> 
+        </ul>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>Both of these graphs are very similar. The presentation barely differs between the two, but the point of contention is using pure 
+          numbers or using proportions.<br>
+          <br>
+          During COVID, I'd often seen news articles declaring things along the lines of "the rate of COVID infection is increasing," while
+          displaying graphs comparing countries or regions of countries, or showing a trend over time. Even then (I was only a sophomore/junior
+           still in high school), I was wondering if the data shown was either pure numbers or proportions of a subset of a population or the whole.
+          I wondered if the measurements took into consideration things like population density. Then the news article would pass by and slip my mind,
+          but my confusion remained: were the numbers I saw something that should alarm me? Is the rate of infection of people worsening, or is it remaing
+          relatively the same? Is the rise in numbers just a case of more people being detected having COVID, since scientists have devised better testing
+          methods to quickly identify those who were infected?<br>
+          <br>
+          The issue is both counts and proportions can be unaltered, yet be framed ever-so-slightly in different contexts. If the loosely-referenced "rate" 
+          was about the count of complaints, then yes, the numbers show that the amount of complaints has been increasing on average. On the other hand. 
+          if "rate" is in reference to the proportion of complaints as a whole, then no, the proportion of use-of-force complaints has actually been 
+          decreasing, which could signify that police officers are looking towards other less problematic methods besides physical force.<br>
+          <br>
+          The small descriptions I added for each visualization summarize their respective visualizations according to its stance. The two do have 
+          a similarity, in that they try to contextualize why the count of gun-involved incidents may be lower than incidents of physical force. They use 
+          the same rationale for this phenomenon, but of course, they can be framed in different ways. The visualization "for" the proposition may use this 
+          to point out that police tend to rely on physical force more than firearm use, which would explain the higher count of physical force complaints. The 
+           rationale alludes to police training to reinforce the statement. Meanwhile, the "against" visualization frames this phenomenon slightly differently, noting that physical force complaints have been decreasing in 
+          proportion to all complaints, while gun-involved incidents remained a steady, low proportion. This rationale also mentions police training as an explanation.
+          <br>
+          <br>
+          Both sides having honest representations of their data can cause confusion when propositions such as this one are framed in a way that
+           leaves some ambiguity. Would either of these graphs be considered deceptive, when both presented unaltered, pure data? Where is the line between deception and persuasion with
+           honest representations like these?
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
